@@ -9,6 +9,7 @@ public class Film {
 	private String description;
 	private int year;
 	private int langId;
+	private String language;
 	private int rentalDur;
 	private double rateRental;
 	private int length;
@@ -17,46 +18,42 @@ public class Film {
 	private String specFeat;
 	private List<Actor> actor;
 
-	public Film() {
+	public Film(int id, String title, String description, short year, 
+			int langId, String language, int rentalDur,
+			double rateRental, int length, double replaceCost, String rating, String specFeat) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.year = year;
+		this.langId = langId;
+		this.language = language;
+		this.rentalDur = rentalDur;
+		this.rateRental = rateRental;
+		this.length = length;
+		this.replaceCost = replaceCost;
+		this.rating = rating;
+		this.specFeat = specFeat;
 	}
+
+	public Film() {}
 
 	public Film(int id) {
 		super();
 		this.id = id;
 	}
 
-	public Film(int id, String title, String description, int year, int langId, int rentalDur, double rateRental,
-			int length, double replaceCost, String rating, String specFeat) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.description = description;
-		this.year = year;
-		this.langId = langId;
-		this.rentalDur = rentalDur;
-		this.rateRental = rateRental;
-		this.length = length;
-		this.replaceCost = replaceCost;
-		this.rating = rating;
-		this.specFeat = specFeat;
+
+
+	public String getLanguage() {
+		return language;
 	}
 
-	public Film(int id, String title, String description, int year, int langId, int rentalDur, double rateRental,
-			int length, double replaceCost, String rating, String specFeat, List<Actor> actor) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.description = description;
-		this.year = year;
-		this.langId = langId;
-		this.rentalDur = rentalDur;
-		this.rateRental = rateRental;
-		this.length = length;
-		this.replaceCost = replaceCost;
-		this.rating = rating;
-		this.specFeat = specFeat;
-		this.actor = actor;
+	public void setLanguage(String language) {
+		this.language = language;
 	}
+
+
 
 	public int getId() {
 		return id;

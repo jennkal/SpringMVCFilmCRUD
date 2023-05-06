@@ -15,7 +15,11 @@
 
 	<a href="filmById.html">Find film by ID </a>
 	<br>
+	<a href="filmByKeyword.html">Find film by Keyword</a>
+	<br>
 	<a href="newFilm.html">Add new Film</a>
+	<br>
+	<a href="deleteFilm.html">Delete a Film</a>
 	<br>
 
 

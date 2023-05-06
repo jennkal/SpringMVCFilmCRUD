@@ -25,7 +25,7 @@ public interface DatabaseAccessor {
 
 	Film createFilm(Film film);
 	
-	boolean updateFilm(int filmId, Film film);
+	boolean updateFilm( Film film);
 	
 	boolean deleteFilm(Film film);
 
