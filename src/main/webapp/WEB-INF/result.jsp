@@ -14,12 +14,17 @@
 	<c:choose>
 		<c:when test="${! empty film}">
 			<ul>
-				<li>${film.id}</li>
+				<li>Film ID : ${film.id}</li>
 				<li>${film.title}</li>
 				<li>${film.description}</li>
-				<li>${film.release_year}</li>
-				<li>${film.language_id}</li>
-				<li>${film.length}</li>
+				<li>${film.year}</li>
+				<li>${film.langId}</li>
+				<li>${film.rentalDur}</li> 
+				<li>${film.length}</li> 
+				<li>${film.replaceCost}</li> 
+				<li>${film.rateRental}</li> 
+				<li>${film.rating}</li> 
+				<li>${film.specFeat}</li> 
 			</ul>
 		</c:when>
 		<c:otherwise>
