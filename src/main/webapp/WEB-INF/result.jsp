@@ -19,7 +19,6 @@
 				<li>${film.description}</li>
 				<li>${film.release_year}</li>
 				<li>${film.language_id}</li>
-				
 				<li>${film.length}</li>
 			</ul>
 		</c:when>

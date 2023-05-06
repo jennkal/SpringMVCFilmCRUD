@@ -18,17 +18,35 @@ public class FilmController {
 	
 	@RequestMapping(path = {"/", "home.do"})
 	public String home(Model model) {
-		return"WEB-INF/home.jsp";
+		return"home";
 	}
 	
 	@RequestMapping(path = "GetFilmId.do",
 			  		params = "id",
 			  		method = RequestMethod.GET)
 	public ModelAndView getFilmDetailsByFilmId(Integer filmId) {
-		ModelAndView mv = new ModelAndView();
+	    
+		System.out.println(filmId);
+		
+	    ModelAndView mv = new ModelAndView();
 		Film film = FilmDAO.findFilmById(filmId);
 		mv.addObject("film" ,film);
-		mv.setViewName("WEB-INF/home.jsp");
+		mv.setViewName("result");
 		return mv;
 	}
+
+	// update below for add new film
+	
+//@RequestMapping(path = "addFilm.do",
+//params = "         ",
+//method = RequestMethod.GET)
+//public ModelAndView createFilm(Integer filmId) {
+//	ModelAndView mv = new ModelAndView();
+//	Film film = FilmDAO.findFilmById(filmId);
+//	mv.addObject("film" ,film);
+//	mv.setViewName("WEB-INF/home.jsp");
+//	return mv;
+//}
 }
+
+
