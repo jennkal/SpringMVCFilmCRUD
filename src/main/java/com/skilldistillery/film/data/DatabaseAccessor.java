@@ -1,9 +1,12 @@
-package com.skilldistillery.film.data;
+package com.skilldistillery.film.data; 
 
 import java.util.List;
 
+
+
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
+import com.skilldistillery.film.entities.Copies;
 
 public interface DatabaseAccessor {
 	 Film findFilmById(int filmId);
@@ -22,8 +25,12 @@ public interface DatabaseAccessor {
 
 	Film createFilm(Film film);
 	
-	Film updateFilm(int filmId, Film film);
+	boolean updateFilm(int filmId, Film film);
 	
 	boolean deleteFilm(Film film);
+
+	List<Copies> findCopiesById(int filmId);
+
+	List<Film> findFilmsByKeyword(String keyword);
 
 }
