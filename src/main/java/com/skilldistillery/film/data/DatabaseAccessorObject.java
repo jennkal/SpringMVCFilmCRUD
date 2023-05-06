@@ -201,7 +201,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				String title = rs.getString("title");
 				String desc = rs.getString("description");
 				short releaseYear = rs.getShort("release_year");
-				String langId = rs.getString("language_id");
+				int langId = rs.getInt("language_id");
+				String langIdTrans = language(langId);
 				int rentDur = rs.getInt("rental_duration");
 				double rate = rs.getDouble("rental_rate");
 				int length = rs.getInt("length");
@@ -209,7 +210,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				String rating = rs.getString("rating");
 				String features = rs.getString("special_features");
 
-				Film film = new Film(filmId, title, desc, releaseYear, langId, rentDur, rate, length, repCost, rating,
+				Film film = new Film(filmId, title, desc, releaseYear, langId, langIdTrans, rentDur, rate, length, repCost, rating,
 						features);
 				films.add(film);
 			}
@@ -482,30 +483,33 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 }
 
 	@Override
-	public boolean updateFilm( Film film) {
+	public boolean updateFilm(int filmId, Film updated) {
 		  Connection conn = null;
+		  System.out.println(updated+"$$$$$$$$$$$$$$$$$$$$$");
 		    try {
 		        conn = DriverManager.getConnection(URL, USER, PWD);
 		        conn.setAutoCommit(false); // START TRANSACTION
-		        String sql = "UPDATE film (title, description, release_year, language_id,"
-						+ " rental_duration, rental_rate, length, replacement_cost, rating, special_features)" 
+		        String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?,"
+						+ " rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ?, rating = ?, special_features = ?" 
 						+ " WHERE id = ?";
 		
 		        
 		        
 				PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-				stmt.setString(1, film.getTitle());
-				stmt.setString(2, film.getDescription());
-				stmt.setInt(3, film.getYear());
-				stmt.setInt(4, film.getLangId());
-				stmt.setInt(5, film.getRentalDur());
-				stmt.setDouble(6, film.getRateRental());
-				stmt.setInt(7, film.getLength());
-				stmt.setDouble(8, film.getReplaceCost());
-				stmt.setString(9, film.getRating());
-				stmt.setString(10, film.getSpecFeat());
-//		        stmt.setInt(11, filmId);
+				stmt.setString(1, updated.getTitle());
+				stmt.setString(2, updated.getDescription());
+				stmt.setInt(3, updated.getYear());
+				stmt.setInt(4, updated.getLangId());
+				stmt.setInt(5, updated.getRentalDur());
+				stmt.setDouble(6, updated.getRateRental());
+				stmt.setInt(7, updated.getLength());
+				stmt.setDouble(8, updated.getReplaceCost());
+				stmt.setString(9, updated.getRating());
+				stmt.setString(10, updated.getSpecFeat());
+				stmt.setInt(11, updated.getId());
 		        
+				System.out.println(filmId);
+				
 		        int updateCount = stmt.executeUpdate();
 		        
 		        conn.commit(); // COMMIT TRANSACTION
@@ -527,7 +531,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		
 
 	@Override
-	public boolean deleteFilm(Film film) {
+	public boolean deleteFilm(int filmId) {
 		Connection conn = null;
 		try {
 			
@@ -537,14 +541,14 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			String sql = "DELETE FROM film WHERE id = ?";
 			
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, film.getId());
+			stmt.setInt(1, filmId);
 			
 			int updateCount = stmt.executeUpdate();
 			
 			sql = "DELETE FROM actor WHERE id = ?";
 			
 			stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, film.getId());
+			stmt.setInt(1, filmId);
 			
 			updateCount = stmt.executeUpdate();
 			

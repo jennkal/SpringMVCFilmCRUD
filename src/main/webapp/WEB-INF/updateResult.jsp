@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Results</title>
+<title>Results Update</title>
 </head>
 <body>
 
@@ -28,10 +28,10 @@
 				<li>Special features :${film.specFeat}</li> 
 				 
 			</ul>
-			<%-- <a href="deleteFilm.do?filmId=${film.id }">DELETE THIS FILM!!!</a>
+			<a href="deleteFilm.do?filmId=${film.id }">DELETE THIS FILM!!!</a>
 			<input value="HOWDY" type="hidden" name="title"/>
-			<br> --%>
-			<a href="updateForm.do?filmId=${film.id }">UPDATE THIS FILM!!!</a>
+			<br>
+			<a href="updateForm.do">UPDATE THIS FILM!!!</a>
 			<input value="HOWDY" type="hidden" name="title"/>
 		</c:when>
 		<c:otherwise>

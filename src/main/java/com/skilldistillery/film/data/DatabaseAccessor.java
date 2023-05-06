@@ -24,13 +24,13 @@ public interface DatabaseAccessor {
 	boolean deleteActor(Actor actor);
 
 	Film createFilm(Film film);
-	
-	boolean updateFilm( Film film);
-	
-	boolean deleteFilm(Film film);
-
+		
 	List<Copies> findCopiesById(int filmId);
 
 	List<Film> findFilmsByKeyword(String keyword);
+
+	boolean deleteFilm(int filmId);
+
+	boolean updateFilm(int filmId, Film updated);
 
 }

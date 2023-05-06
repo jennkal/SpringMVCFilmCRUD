@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.data.DatabaseAccessor;
+import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 @Controller
@@ -33,7 +34,13 @@ public class FilmController {
 		
 		ModelAndView mv = new ModelAndView();
 		Film film = FilmDAO.findFilmById(filmId);
+		
+		List<Actor> actors = FilmDAO.findActorsByFilmId(filmId);
+		
+		mv.addObject("actors" ,actors);
+	
 		mv.addObject("film", film);
+		
 		mv.setViewName("result");
 		
 		
@@ -48,9 +55,9 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		List<Film> film = FilmDAO.findFilmsByKeyword(keyword);
 		mv.addObject("film", film);
-		mv.setViewName("result");
+		mv.setViewName("keywordResult");
 		
-		System.out.println("in controller" + film);
+		
 		
 		return mv;
 	}
@@ -70,24 +77,58 @@ public class FilmController {
 					method = RequestMethod.GET)
 	public ModelAndView created(Film film) {
 		ModelAndView mv = new ModelAndView();
-		FilmDAO.updateFilm(film);
+		FilmDAO.updateFilm(film.getId(), film);
 		mv.setViewName("result");
 		return mv;
 	}
 	
 	@RequestMapping(path = "deleteFilm.do", 
 					method = RequestMethod.GET  )
-	
-	public ModelAndView deleteFilm(Film film) {
-		
-		ModelAndView mv = new ModelAndView();
-		
-		FilmDAO.deleteFilm(film);
-		
+	public ModelAndView deleteFilm(@RequestParam int filmId) {	
+		ModelAndView mv = new ModelAndView();				
+		FilmDAO.deleteFilm(filmId);	
 		mv.setViewName("delete");
-		
 		return mv;
 	}
 	
+ @RequestMapping(path = "updateFilm.do",
+		 		method = RequestMethod.GET )	
+ public ModelAndView updateFilm(Film updated) {
+	 ModelAndView mv = new ModelAndView();
+	 System.out.println(updated);
+	 FilmDAO.updateFilm(    updated.getId(), updated    );	 
+	 System.out.println(updated);
+	 mv.setViewName("updateResult");	 
+	 return mv;
+	 
+ }
+ @RequestMapping(path = "updateForm.do",
+		 		method = RequestMethod.GET	)
+public ModelAndView updateForm(@RequestParam ("filmId") int filmId, RedirectAttributes redir) {
+		ModelAndView mv = new ModelAndView();
+		
+		Film film = FilmDAO.findFilmById(filmId);
+		
+		redir.addFlashAttribute("film", film);
 	
+		System.out.println(film);
+	
+//		mv.addObject("film", film);
+		
+		mv.setViewName("redirect:redirUpdate.do");
+		
+		return mv;
+ }
+ 
+ @RequestMapping(path = "redirUpdate.do",
+		 		method = RequestMethod.GET	)
+ public ModelAndView redirUpdate( Film film, RedirectAttributes redir) {
+	 ModelAndView mv = new ModelAndView();
+	 
+		redir.addFlashAttribute("film", film);
+	 System.out.println("******"+film);
+	 mv.setViewName("update");
+	 
+	 return mv;
+ }
 }
