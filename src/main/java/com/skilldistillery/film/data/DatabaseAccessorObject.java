@@ -413,7 +413,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 
 	@Override
-	public Film createFilm(Film film) {
+	public boolean createFilm(Film film) {
+		boolean success = false;
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PWD);
@@ -468,6 +469,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				conn.close();
 			}
 			
+			success = true;
+			
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
@@ -477,9 +480,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					System.err.println("Error trying to rollback");
 				}
 			}
-			throw new RuntimeException("Error inserting film " + film.getTitle());
+			//throw new RuntimeException("Error inserting film " + film.getTitle());
+			return success;
 		}
-		return film;
+		return success;
 }
 
 	@Override

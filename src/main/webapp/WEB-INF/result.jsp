@@ -12,7 +12,7 @@
 <body>
 
 	<c:choose>
-		<c:when test="${! empty film}">
+		<c:when test="${film.id != 0}">
 			<ul>
 				
 				<li>Film ID : ${film.id}</li>
@@ -35,7 +35,7 @@
 			<input value="HOWDY" type="hidden" name="title"/>
 		</c:when>
 		<c:otherwise>
-			<p>No film(s) found</p>
+			<p>Unable to add film. Please check inputs and try again. Don't make me get my pitchfork</p>
 		</c:otherwise>
 	</c:choose>
 

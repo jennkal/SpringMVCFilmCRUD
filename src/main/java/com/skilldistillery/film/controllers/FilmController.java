@@ -67,8 +67,10 @@ public class FilmController {
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.GET)
 	public ModelAndView createFilm(Film film, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
-		FilmDAO.createFilm(film);
-		redir.addFlashAttribute("film", film);
+		if (FilmDAO.createFilm(film)) {
+			redir.addFlashAttribute("film", film);	
+		}
+		
 		mv.setViewName("redirect:filmCreated.do");
 		return mv;
 	}
@@ -76,8 +78,9 @@ public class FilmController {
 	@RequestMapping(path = "filmCreated.do", // mapping to handle Redirect
 					method = RequestMethod.GET)
 	public ModelAndView created(Film film) {
+		System.out.println("film object to display is: " + film);
 		ModelAndView mv = new ModelAndView();
-		FilmDAO.updateFilm(film.getId(), film);
+		//FilmDAO.updateFilm(film.getId(), film);
 		mv.setViewName("result");
 		return mv;
 	}
@@ -93,7 +96,7 @@ public class FilmController {
 	
  @RequestMapping(path = "updateFilm.do",
 		 		method = RequestMethod.GET )	
- public ModelAndView updateFilm(Film updated) {
+public ModelAndView updateFilm(Film updated) {
 	 System.out.println("inside updatefilm.do controller");
 	 ModelAndView mv = new ModelAndView();
 	 System.out.println("film will be updated to:" + updated);
@@ -103,6 +106,7 @@ public class FilmController {
 	 return mv;
 	 
  }
+ 
  @RequestMapping(path = "updateForm.do",
 		 		method = RequestMethod.GET	)
 public ModelAndView updateForm(@RequestParam ("filmId") int filmId, RedirectAttributes redir) {
@@ -124,7 +128,7 @@ public ModelAndView updateForm(@RequestParam ("filmId") int filmId, RedirectAttr
  
  @RequestMapping(path = "redirUpdate.do",
 		 		method = RequestMethod.GET	)
- public ModelAndView redirUpdate( Film film, RedirectAttributes redir) {
+public ModelAndView redirUpdate( Film film, RedirectAttributes redir) {
 	 System.out.println("in redirUpdate.do controller");
 	 ModelAndView mv = new ModelAndView();
 	 

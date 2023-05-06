@@ -23,7 +23,7 @@ public interface DatabaseAccessor {
 
 	boolean deleteActor(Actor actor);
 
-	Film createFilm(Film film);
+	boolean createFilm(Film film);
 		
 	List<Copies> findCopiesById(int filmId);
 
