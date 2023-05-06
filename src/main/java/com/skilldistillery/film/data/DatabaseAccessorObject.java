@@ -36,10 +36,11 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			Connection conn = DriverManager.getConnection(URL, USER, PWD);
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, fId);
+			
 			ResultSet rs = stmt.executeQuery();
-			// 5)iterate through results and display
+
 			if (rs.next()) {
-				int filmId = rs.getInt("id");
+				Integer filmId = rs.getInt("id");
 				String title = rs.getString("title");
 				String desc = rs.getString("description");
 				short releaseYear = rs.getShort("release_year");
