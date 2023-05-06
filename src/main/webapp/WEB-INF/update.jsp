@@ -7,6 +7,8 @@
 <body>
   <h3>Update Film</h3>
 <form action="updateFilm.do?filmId=${film.id }" method="GET">
+	  <input type="hidden" name="id" value="${film.id}" >
+	  <br>
       <label for="title">Title :</label>
       <input type="text" name="title" value="add the flim" >
       <br>

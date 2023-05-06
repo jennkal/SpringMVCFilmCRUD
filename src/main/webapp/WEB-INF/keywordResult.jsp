@@ -19,7 +19,7 @@
 				<c:forEach var="   " items="${ film  }">
 					
 				
-					<option value="${  }">${   }</option>
+					<!--  <option value="${}">${   }</option>-->
 				
 				
 				
