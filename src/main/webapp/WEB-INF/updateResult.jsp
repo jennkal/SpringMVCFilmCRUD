@@ -28,11 +28,11 @@
 				<li>Special features :${film.specFeat}</li> 
 				 
 			</ul>
-			<a href="deleteFilm.do?filmId=${film.id }">DELETE THIS FILM!!!</a>
+			 <a href="deleteFilm.do?filmId=${film.id }">DELETE THIS FILM!!!</a>
 			<input value="HOWDY" type="hidden" name="title"/>
-			<br>
-			<a href="updateForm.do">UPDATE THIS FILM!!!</a>
-			<input value="HOWDY" type="hidden" name="title"/>
+			<br> 
+			<!-- <a href="updateForm.do">UPDATE THIS FILM!!!</a>
+			<input value="HOWDY" type="hidden" name="title"/> -->
 		</c:when>
 		<c:otherwise>
 			<p>No film(s) found</p>

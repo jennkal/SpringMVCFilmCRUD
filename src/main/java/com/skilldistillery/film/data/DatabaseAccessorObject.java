@@ -188,8 +188,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 		try {
 			Connection conn = DriverManager.getConnection(URL, USER, PWD);
-			String sql = "SELECT * " + " FROM film " + " WHERE " + " title LIKE ?" // 1
-					+ " OR description LIKE ?"; // 2
+			String sql = "SELECT * FROM film WHERE title LIKE ? OR description LIKE ?;"; // 2
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, "%" + keyword + "%");
@@ -202,7 +201,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				String desc = rs.getString("description");
 				short releaseYear = rs.getShort("release_year");
 				int langId = rs.getInt("language_id");
+				
 				String langIdTrans = language(langId);
+				
 				int rentDur = rs.getInt("rental_duration");
 				double rate = rs.getDouble("rental_rate");
 				int length = rs.getInt("length");
