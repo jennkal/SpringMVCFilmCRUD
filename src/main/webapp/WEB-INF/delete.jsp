@@ -11,13 +11,13 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test="${  empty film}">
+		<c:when test="${value==true}">
 			
 			<p>the Film has been deleted</p>
 			
 		</c:when>
 		<c:otherwise>
-			<p>No film(s) found</p>
+			<p>Unable to delete film. No soup for you.</p>
 		</c:otherwise>
 	</c:choose>
 

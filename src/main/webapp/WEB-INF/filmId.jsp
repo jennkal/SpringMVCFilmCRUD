@@ -12,7 +12,7 @@
 <body>
 
 	<c:choose>
-		<c:when test="${film.id != 0}">
+		<c:when test="${! empty film}">
 			<ul>
 				
 				<li>Film ID : ${film.id}</li>
@@ -32,10 +32,11 @@
 			<input value="HOWDY" type="hidden" name="title"/>
 			<br>
 			<a href="updateForm.do?filmId=${film.id }">UPDATE THIS FILM!!!</a>
+			
 			<input value="HOWDY" type="hidden" name="title"/>
 		</c:when>
 		<c:otherwise>
-			<p>Unable to add film. Please check inputs and try again. Don't make me get my pitchfork</p>
+			<p>No film(s) found</p>
 		</c:otherwise>
 	</c:choose>
 

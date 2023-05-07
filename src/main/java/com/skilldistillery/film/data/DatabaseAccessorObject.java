@@ -548,15 +548,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			stmt.setInt(1, filmId);
 			
 			int updateCount = stmt.executeUpdate();
-			
-			sql = "DELETE FROM actor WHERE id = ?";
-			
-			stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, filmId);
-			
-			updateCount = stmt.executeUpdate();
-			
-			conn.commit();             // COMMIT TRANSACTION
+			conn.commit();  // COMMIT TRANSACTION
 			
 			if(!conn.isClosed()){
 				conn.close();

@@ -41,7 +41,7 @@ public class FilmController {
 	
 		mv.addObject("film", film);
 		
-		mv.setViewName("result");
+		mv.setViewName("filmId");
 		
 		
 		return mv;
@@ -87,9 +87,14 @@ public class FilmController {
 	
 	@RequestMapping(path = "deleteFilm.do", 
 					method = RequestMethod.GET  )
-	public ModelAndView deleteFilm(@RequestParam int filmId) {	
+	public ModelAndView deleteFilm(@RequestParam int filmId, RedirectAttributes redir) {	
 		ModelAndView mv = new ModelAndView();				
-		FilmDAO.deleteFilm(filmId);	
+		if(FilmDAO.deleteFilm(filmId)) {
+			mv.addObject("value", true);
+		}
+		else {
+			mv.addObject("value", false);
+		}
 		mv.setViewName("delete");
 		return mv;
 	}
@@ -139,3 +144,4 @@ public ModelAndView redirUpdate( Film film, RedirectAttributes redir) {
 	 return mv;
  }
 }
+
