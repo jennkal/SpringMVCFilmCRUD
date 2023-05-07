@@ -7,19 +7,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
 <title>Spring MVC Film Site</title>
 </head>
 <body>
 
+
 	<h1>MVC Film Site</h1>
 
-	<a href="filmById.html">Find film by ID </a>
+<div class="button-container">
+	<button onclick="window.open('filmById.html');">Find film by ID </button>
 	<br>
-	<a href="filmByKeyword.html">Find film by Keyword</a>
+	<button onclick="window.open('filmByKeyword.html');">Find film by Keyword</button>
 	<br>
-	<a href="newFilm.html">Add new Film</a>
+	<button onclick="window.open('newFilm.html');">Add new Film</button>
 	<br>
+</div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>
