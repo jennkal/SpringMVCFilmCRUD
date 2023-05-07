@@ -32,6 +32,9 @@
 					<c:forEach var="actor" items="${film.actors}">
 						<li>Actor : ${actor.firstName } ${actor.lastName }</li>
 					</c:forEach>
+					<c:forEach var="category" items="${film.categories}">
+						<li>category : ${category }</li>
+					</c:forEach>
 
 				</ul>
 				<a href="deleteFilm.do?filmId=${film.id }">DELETE THIS FILM!!!</a>

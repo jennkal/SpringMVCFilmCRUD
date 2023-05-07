@@ -12,8 +12,8 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.skilldistillery.film.entities.Actor;
-import com.skilldistillery.film.entities.Film;
 import com.skilldistillery.film.entities.Copies;
+import com.skilldistillery.film.entities.Film;
 
 @Component
 public class DatabaseAccessorObject implements DatabaseAccessor {
@@ -57,9 +57,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				String features = rs.getString("special_features");
 				
 				List<Actor> actors = findActorsByFilmId(filmId);
+				List<String> categories = findCategoryByFilmId(filmId);
 				
 				film = new Film (filmId, title, desc, releaseYear, langId, langIdTrans, rentDur,
-						 rate, length, repCost, rating, features, actors);
+						 rate, length, repCost, rating, features, actors, categories);
 				System.out.println(film);
 				
 			}
@@ -74,8 +75,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 	
 	@Override
-	public Film findCategoryByFilmId(int filmId) {
-		Film film = null;
+	public List<String> findCategoryByFilmId(int filmId) {
+		
+		List<String> categories = new ArrayList<>();
 
 		try {
 			String sql = "SELECT name FROM category JOIN film_category ON category.id = film_category.category_id WHERE film_id = ?;";
@@ -85,13 +87,13 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			
 			ResultSet rs = stmt.executeQuery();
 
-			if (rs.next()) {
+			while (rs.next()) {
 				
-//				List<String> categories = findCategoriesByFilmId(filmId);
-//		
-//				film = new Film (filmId, title, desc, releaseYear, langId, langIdTrans, rentDur,
-//						 rate, length, repCost, rating, features, actors);
-//				System.out.println(film);
+				String category = rs.getString("name");
+		
+				System.out.println(category);
+				
+				categories.add(category);
 				
 			}
 			
@@ -101,7 +103,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return film;
+		return categories;
 	}
 	
 	
@@ -248,9 +250,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				String features = rs.getString("special_features");
 				
 				List<Actor> actors = findActorsByFilmId(filmId);
+				List<String> categories = findCategoryByFilmId(filmId);
 
 				Film film = new Film(filmId, title, desc, releaseYear, langId, langIdTrans, rentDur, rate, length, repCost, rating,
-						features, actors);
+						features, actors, categories);
 				films.add(film);
 			}
 			rs.close();

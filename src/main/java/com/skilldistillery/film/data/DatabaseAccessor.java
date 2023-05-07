@@ -33,6 +33,6 @@ public interface DatabaseAccessor {
 
 	boolean updateFilm(int filmId, Film updated);
 	
-	Film findCategoryByFilmId(int filmId);
+	List<String> findCategoryByFilmId(int filmId);
 
 }
