@@ -32,12 +32,9 @@ public class FilmController {
 					method = RequestMethod.GET)
 	public ModelAndView getFilmDetailsByFilmId(@RequestParam("id") Integer filmId) {
 		
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView(       );
+		
 		Film film = FilmDAO.findFilmById(filmId);
-		
-		List<Actor> actors = FilmDAO.findActorsByFilmId(filmId);
-		
-		mv.addObject("actors" ,actors);
 	
 		mv.addObject("film", film);
 		

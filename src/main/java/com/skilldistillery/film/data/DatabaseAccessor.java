@@ -32,5 +32,7 @@ public interface DatabaseAccessor {
 	boolean deleteFilm(int filmId);
 
 	boolean updateFilm(int filmId, Film updated);
+	
+	Film findCategoryByFilmId(int filmId);
 
 }

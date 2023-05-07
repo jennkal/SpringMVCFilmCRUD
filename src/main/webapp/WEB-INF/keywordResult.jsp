@@ -29,6 +29,10 @@
 					<li>Rating :${film.rating}</li>
 					<li>Special features :${film.specFeat}</li>
 
+					<c:forEach var="actor" items="${film.actors}">
+						<li>Actor : ${actor.firstName } ${actor.lastName }</li>
+					</c:forEach>
+
 				</ul>
 				<a href="deleteFilm.do?filmId=${film.id }">DELETE THIS FILM!!!</a>
 				<input value="HOWDY" type="hidden" name="title" />

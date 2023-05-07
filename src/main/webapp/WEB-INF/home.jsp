@@ -19,8 +19,6 @@
 	<br>
 	<a href="newFilm.html">Add new Film</a>
 	<br>
-	<a href="deleteFilm.html">Delete a Film</a>
-	<br>
 
 
 </body>
