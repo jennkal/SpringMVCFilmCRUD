@@ -1,12 +1,119 @@
 body{
-	background-color: grey;
+	background-color: #252422;
+
 }
-.button-container{
+.filmTitle {
+	background-color: #403d39;
+	border-radius: 10px;
 	display:flex;
 	flex-direction:row;
 	justify-content:space-between;
 	align-items:center;
 	box-sizing:border-box;
 	padding: 20px;
+	margin: 20px;	
+	color:#edf2f4;
+	font-size:24px;
+}
+.button-container{
+	background-color: #403d39;
+	border-radius: 10px;
+	display:flex;
+	flex-direction:row;
+	justify-content:space-evenly;
+	align-items:center;
+	box-sizing:border-box;
+	padding: 20px;
+	margin: 20px;
 	
+}
+.result-container{
+	
+	background-color: #ede7e3;
+	margin: 20px;
+	border-radius: 10px;
+	padding: 5px;	
+}
+.subheader-container{
+	text-align: center;
+}
+.form-container{
+	color:#edf2f4;
+	background-color: #403d39;
+	border-radius: 10px;
+	align-items:center;
+	box-sizing:border-box;
+	padding: 20px;
+	margin: 20px;
+	
+}
+form input[type="text"]{
+	background-color: #ede7e3;
+	border-radius: 5px;
+	}	
+form input[type="submit"]{
+	border-radius: 10px;
+	background-color:#889696;
+	color:#edf2f4;	
+}
+button{
+	border-radius: 10px;
+	background-color:#889696;
+	color:#edf2f4;
+}
+.update-button:hover {
+	background-color:#0ead69;
+	color:#edf2f4;	
+}
+.update-button:active {
+	background-color:#0ead69;
+	color:#403d39;	
+}
+.delete-button:hover {
+	background-color:#d80032;
+	color:#edf2f4;	
+}
+.delete-button:active {
+	background-color:#d80032;
+	color:#403d39;	
+}
+.box{
+	background-color: #ede7e3;
+	margin: 20px;
+	border-radius: 10px;
+	padding: 5px;
+}
+.footer{
+	background-color: #403d39;
+	border-radius: 10px;
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	align-items:center;
+	box-sizing:border-box;
+	padding: 2px;
+	margin: 20px;
+}
+.gitlink{
+	color: #edf2f4;
+	text-decoration: none;
+	
+}
+.gitlink:hover{
+	color:#0ead69;	
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  margin: auto;
+}
+
+th, td {
+  text-align: center;
+  vertical-align: top;
+  padding: 10px;
+  border: 1px solid black;
+}
+table li {
+	list-style-type: none;
 }
