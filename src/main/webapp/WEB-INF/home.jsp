@@ -21,21 +21,6 @@
 <title>Spring MVC Film Site</title>
 </head>
 <body>
-
-	<div class="button-container">
-		<button class="my-button"
-			onclick="window.location.href = 'filmById.html' ;">Find film
-			by ID</button>
-		<br>
-		<button class="my-button"
-			onclick="window.location.href = 'filmByKeyword.html';">Find
-			film by Keyword</button>
-		<br>
-		<button class="my-button"
-			onclick="window.location.href = 'newFilm.html';">Add new
-			Film</button>
-		<br>
-	</div>
 	<div class="box">
 		Welcome to our simple CRUD <em>(Create, Read, Update, Destroy)</em>
 		web application that allows you to easily interact with a database.
@@ -68,3 +53,18 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
+
+<!-- 	<div class="button-container">
+		<button class="my-button"
+			onclick="window.location.href = 'filmById.html' ;">Find film
+			by ID</button>
+		<br>
+		<button class="my-button"
+			onclick="window.location.href = 'filmByKeyword.html';">Find
+			film by Keyword</button>
+		<br>
+		<button class="my-button"
+			onclick="window.location.href = 'newFilm.html';">Add new
+			Film</button>
+		<br>
+	</div> -->

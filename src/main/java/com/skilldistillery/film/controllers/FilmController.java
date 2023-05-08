@@ -43,12 +43,11 @@ public class FilmController {
 		
 		return mv;
 	}
+	
 	@RequestMapping(path = "getFilmByKey.do", 
 					params = "key", 
 					method = RequestMethod.GET)
 	public ModelAndView getFilmDetailsByKeyword(@RequestParam("key") String keyword) {
-		
-		
 		ModelAndView mv = new ModelAndView();
 		
 		List<Film> filmList = FilmDAO.findFilmsByKeyword(keyword);

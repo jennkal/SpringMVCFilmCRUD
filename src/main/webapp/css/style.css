@@ -19,6 +19,13 @@ body{
 	color:#edf2f4;	
 	margin: 20px;
 }
+.noSoup{
+	display:flex;
+	align-items:center;
+	color:#d80032;	
+	margin: 20px;
+	
+}
 .button-container{
 	background-color: #403d39;
 	border-radius: 10px;
@@ -42,6 +49,19 @@ body{
 	text-align: center;
 }
 .form-container{
+
+	color:#edf2f4;
+	background-color: #403d39;
+	border-radius: 10px;
+	align-items:center;
+	box-sizing:border-box;
+	padding: 20px;
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
+	
+}
+.update-container{
 	color:#edf2f4;
 	background-color: #403d39;
 	border-radius: 10px;
@@ -51,6 +71,10 @@ body{
 	margin: 20px;
 	
 }
+form input[type="number"]{
+	background-color: #ede7e3;
+	border-radius: 5px;
+	}	
 form input[type="text"]{
 	background-color: #ede7e3;
 	border-radius: 5px;

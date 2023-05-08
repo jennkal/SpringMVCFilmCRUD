@@ -44,10 +44,11 @@
 						<tr>
 							<td><c:forEach var="actor" items="${film.actors}">
 									<li>${actor.firstName }${actor.lastName }</li>
-								</c:forEach></td>
+								</c:forEach>
+							</td>
 							<td>
 								<li>Rental Rate : $${film.rateRental}</li>
-								<li>${film.rentalDur}maximumrental period</li>
+								<li>${film.rentalDur} days max rental period</li>
 								<li>Replacement cost : ${film.replaceCost}</li>
 								<li>Special features : ${film.specFeat}</li>
 							</td>
@@ -55,7 +56,7 @@
 					</table>
 					<div class="button-container">
 						<button class="delete-button"
-							onclick="window.location.href = 'deleteFilm.do?filmId=${film.id }'; ">
+							onclick="window.location.href = 'deleteFilm.do?filmId=${film.id }';">
 							DELETE</button>
 						<input value="HOWDY" type="hidden" name="title" />
 
@@ -64,16 +65,19 @@
 							onclick="window.location.href = 'updateForm.do?filmId=${film.id }';">
 							UPDATE</button>
 						<input value="HOWDY" type="hidden" name="title" />
-					</div>
+			</div>
 		</c:when>
 		<c:otherwise>
-		<div class="filmnotfound">
-			<p>FILM NOT FOUND</p>
-		</div>
+			<div class="filmnotfound">
+				<p>FILM NOT FOUND</p>
+			</div>
 		</c:otherwise>
 	</c:choose>
-
-
-
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+		crossorigin="anonymous">
+	</script>
+	
 </body>
 </html>

@@ -7,6 +7,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+	crossorigin="anonymous" />
+
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 <title>Delete Result</title>
 </head>
 <body>
@@ -17,7 +27,12 @@
 			
 		</c:when>
 		<c:otherwise>
-			<p>Unable to delete film. No soup for you.</p>
+		<div class="noSoup">
+			You do not have the permissions to delete this film
+		<iframe src="https://giphy.com/embed/dBZb8nAfLfOZ8B0CHA" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen>
+		</iframe>
+		</div>
+		
 		</c:otherwise>
 	</c:choose>
 
