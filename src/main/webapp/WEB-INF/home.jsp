@@ -14,7 +14,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-	crossorigin="anonymous"/>
+	crossorigin="anonymous" />
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 
@@ -30,17 +30,28 @@
 		it easy. Please click around and have fun, go ahead try to break
 		something - if you do we'll get the chance to learn!
 	</div>
-	<div class="form-container"> 
-	<h3><em>Search field options :</em></h3>
-	
-		<form action="GetFilmId.do" method="GET"> film id
-			<input type="text" name="id" size="4" /> 
-			<input type="submit" value="search" />
-		</form>
-		<form action="getFilmByKey.do" method="GET"> keyword
-    		<input type="text" name="key" size="10"/> 
-    		<input type="submit" value="search" />
-  		</form>
+
+	<div class="option-container">
+		<div class="search-container">
+			<h3>
+				<em>Search field options :</em>
+			</h3>
+
+			<form action="GetFilmId.do" method="GET">
+				film id <input type="text" name="id" size="4" /> <input
+					type="submit" value="search" />
+			</form>
+			<form action="getFilmByKey.do" method="GET">
+				keyword <input type="text" name="key" size="10" /> <input
+					type="submit" value="search" />
+			</form>
+		</div>
+		<div class="button-container">
+			<button class="my-button"
+				onclick="window.location.href = 'newFilm.html';">Add new
+				Film</button>
+			
+		</div>
 	</div>
 	<div class="footer">
 		<a class="gitlink" href="https://github.com/jennkal/SpringMVCFilmCRUD"><em>check
