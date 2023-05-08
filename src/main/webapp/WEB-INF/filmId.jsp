@@ -67,6 +67,7 @@
 						<input value="HOWDY" type="hidden" name="title" />
 			</div>
 		</c:when>
+		
 		<c:otherwise>
 			<div class="filmnotfound">
 				<p>FILM NOT FOUND</p>

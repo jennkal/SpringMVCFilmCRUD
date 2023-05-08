@@ -22,8 +22,9 @@
 <body>
 	<c:choose>
 		<c:when test="${value==true}">
-			
+			<div class="success">
 			<p>the Film has been deleted</p>
+			</div>
 			
 		</c:when>
 		<c:otherwise>

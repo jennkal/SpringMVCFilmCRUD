@@ -38,8 +38,8 @@
 			</h3>
 
 			<form action="GetFilmId.do" method="GET">
-				film id <input type="text" name="id" size="4" /> <input
-					type="submit" value="search" />
+				film id <input type="text" name="id" size="4"  required/> <input
+					type="submit" value="search"/>
 			</form>
 			<form action="getFilmByKey.do" method="GET">
 				keyword <input type="text" name="key" size="10" /> <input
