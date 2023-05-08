@@ -15,6 +15,10 @@ body{
 	color:#edf2f4;
 	font-size:24px;
 }
+.filmnotfound{
+	color:#edf2f4;	
+	margin: 20px;
+}
 .button-container{
 	background-color: #403d39;
 	border-radius: 10px;
@@ -60,6 +64,14 @@ button{
 	border-radius: 10px;
 	background-color:#889696;
 	color:#edf2f4;
+}
+.my-button:hover {
+	background-color:#0ead69;
+	color:#edf2f4;	
+}
+.my-button:active {
+	background-color:#0ead69;
+	color:#403d39;	
 }
 .update-button:hover {
 	background-color:#0ead69;

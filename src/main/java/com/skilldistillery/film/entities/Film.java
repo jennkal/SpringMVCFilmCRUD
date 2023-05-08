@@ -80,28 +80,18 @@ public class Film {
 		this.specFeat = specFeat;
 		this.actors = actors;
 	}
-
-
-
 	public Film() {}
 
 	public Film(int id) {
 		super();
 		this.id = id;
 	}
-
-
-
 	public String getLanguage() {
 		return language;
 	}
-
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-
-
-
 	public int getId() {
 		return id;
 	}

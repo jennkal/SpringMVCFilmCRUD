@@ -67,7 +67,9 @@
 					</div>
 		</c:when>
 		<c:otherwise>
-			<p>No film(s) found</p>
+		<div class="filmnotfound">
+			<p>FILM NOT FOUND</p>
+		</div>
 		</c:otherwise>
 	</c:choose>
 
